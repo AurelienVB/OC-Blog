@@ -1,0 +1,13 @@
+<div class="list-group-item" [ngClass]="getColor()" xmlns="http://www.w3.org/1999/html">
+  <h4 class="list-group-item-heading">
+    {{ post.title }}
+    <small class="blue">{{ post.loveIts }} <span class="glyphicon glyphicon-thumbs-up"></span></small>
+    <small class="pull-right italic">{{ post.created_at | date: 'dd/mm/yyyy HH:mm' }}</small>
+  </h4>
+  <p class="list-group-item-text">{{ post.content }}</p>
+  <br>
+  <div class="btn-group">
+    <button type="button" class="btn btn-success" (click)="loveIt(true)">Love it! <span class="glyphicon glyphicon-thumbs-up"></span></button>
+    <button type="button" class="btn btn-danger" (click)="loveIt(false)">Don't love it!  <span class="glyphicon glyphicon-thumbs-down"></span></button>
+  </div>
+</div>
