@@ -1,7 +1,8 @@
+<app-menu></app-menu>
+
 <div class="container">
-  <h1>
-    {{ title | uppercase}}
-  </h1>
-  <app-post-list [posts]="posts"></app-post-list>
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
