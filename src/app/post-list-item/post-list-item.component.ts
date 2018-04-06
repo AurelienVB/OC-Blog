@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Post} from "../post";
+import {PostService} from "../services/post.service";
 
 @Component({
   selector: 'app-post-list-item',
@@ -9,23 +10,18 @@ import {Post} from "../post";
 export class PostListItemComponent implements OnInit {
 
   @Input() post: Post;
+  @Input() index: number;
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
   }
 
-  getColor() {
-    if(this.post.loveIts > 0) {
-      return 'list-group-item-success';
-    } else if(this.post.loveIts < 0) {
-      return 'list-group-item-danger';
-    } else {
-      return '';
-    }
+  onLoveIt(love: boolean) {
+    this.postService.lovePost(love, this.index);
   }
 
-  loveIt(love: boolean) {
-    love ? this.post.loveIts++ : this.post.loveIts--;
+  onDeletePost() {
+    this.postService.deletePost(this.index);
   }
 }
